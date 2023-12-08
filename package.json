@@ -1,11 +1,26 @@
 {
   "name": "typescript-homework-module-3",
   "version": "1.0.0",
-  "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "typescript": "^5.1.5"
-  }
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "@web/dev-server": "^0.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "web-dev-server --node-resolve --open --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/korysergey55/goit-advancedjs-hw-07.git"
+  },
+  "bugs": {
+    "url": "https://github.com/korysergey55/goit-advancedjs-hw-07/issues"
+  },
+  "homepage": "https://github.com/korysergey55/goit-advancedjs-hw-07#readme"
 }
