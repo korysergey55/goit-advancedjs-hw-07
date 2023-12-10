@@ -1,40 +1,55 @@
+interface IKey {
+  getSignature():number
+}
 
 interface IPerson {
+  getKey(): number
+}
+
+interface IPersonSignature {
   signature: number
 }
 
-class Key {
+interface IHouse {
+  door: boolean,
+  i_key: number,
+  tenants: IPersonSignature[],
+  comeIn(person: any): void,
+  OpenDoor(personKey: number):void
+}
+
+class Key implements IKey{
   private signature: number
   
   constructor() {
     this.signature = Math.floor(Math.random() * (Math.floor(100) - Math.ceil(1))) + Math.ceil(1)
   }
-  public getSignature():number {
+  public getSignature() {
     return this.signature
   }
 }
 const key = new Key();
 
 
-class Person {
+class Person implements IPerson{
   private key: number
 
   constructor(signatureKey:number) {
     this.key = signatureKey
   }
-  public getKey(): number {
+  public getKey() {
     return this.key
   }
 }
 const person = new Person(key.getSignature());
 
 
-abstract class House {
+abstract class House implements IHouse{
   public door: boolean
   public i_key: number
-  public tenants: IPerson[]
+  public tenants: IPersonSignature[]
 
-  constructor(key: IPerson ) {
+  constructor(key: IPersonSignature ) {
     this.door  = false
     this.tenants = []
     this.i_key = key.signature
